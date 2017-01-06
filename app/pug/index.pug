@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+    head
+        title Get Sorted: Toast Grids
+        link(rel="stylesheet" type="text/css" href="css/app.css")
+        link(rel="stylesheet" type="text/css" href="css/animation.css")
+        //- meta(name="viewport" content=""
+    body
+
+        .container
+            include includes/_toast_grid.pug
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+        script(src="js/noframework.waypoints.min.js")
+        script.
+
+            var notify = function(message){
+                alert(message);
+            }
+            var waypoint = new Waypoint({
+                element: document.getElementById('github'),
+                handler: function(direction) {
+                    $('body').addClass('toasted');
+                    $('#toasting').html('~~TOASTED~~');
+                    $('#github').css('z-index', '10');
+                    },
+                    offset: 800
+                    })
